@@ -11,20 +11,20 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
     })
 
 
-const a = new Animal({
-    name: 'George',
-    species: 'dog',
-    age: 6
-})
+// const a = new Animal({
+//     name: 'George',
+//     species: 'dog',
+//     age: 6
+// })
 
-a.save().then (a => {
-    console.log(a)
-})
-.catch(e => {
-    console.log(e)
-})
+// a.save().then (a => {
+//     console.log(a)
+// })
+// .catch(e => {
+//     console.log(e)
+// })
 
-const seedProducts = [
+const seedAnimals = [
     {
         name: 'Fred',
         species: 'dog',
@@ -46,3 +46,5 @@ const seedProducts = [
         age: 3
     }
 ]
+
+Animal.insertMany(seedAnimals);
