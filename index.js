@@ -17,7 +17,12 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'ejs');
 
-    app.get
+    app.get('/animals', async (req, res) => {
+        const animals = await Animal.find({})
+        console.log(animals)
+        res.send('ALL ANIMALS LOADING')
+
+    })
 
 app.listen(3000, () => {
     console.log('SERVER CONNECTION ESTABLISHED!')
