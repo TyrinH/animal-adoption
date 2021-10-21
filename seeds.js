@@ -23,3 +23,26 @@ a.save().then (a => {
 .catch(e => {
     console.log(e)
 })
+
+const seedProducts = [
+    {
+        name: 'Fred',
+        species: 'dog',
+        age: 12
+    },
+    {
+        name: 'Scarlet',
+        species: 'dog',
+        age: 4
+    },
+    {
+        name: 'Waffle',
+        species: 'dog',
+        age: 2
+    },
+    {
+        name: 'Oscar',
+        species: 'dog',
+        age: 3
+    }
+]
