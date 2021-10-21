@@ -34,6 +34,7 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
         res.redirect(`/animals/${newAnimal._id}`)
 
     })
+    
     app.get('/animals/:id', async (req, res) => {
         const { id } = req.params;
         const foundAnimal = await Animal.findById(id)
