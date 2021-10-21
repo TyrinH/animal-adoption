@@ -19,9 +19,13 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
 
     app.get('/animals', async (req, res) => {
         const animals = await Animal.find({})
-        console.log(animals)
         res.render('animals/index', { animals })
 
+    })
+    app.get('/animals/:id', async (req, res) => {
+        const { id } = req.params;
+        const foundAnimal = await Animal.findById(id)
+        res.render('animals/show', { foundAnimal })
     })
 
 app.listen(3000, () => {
