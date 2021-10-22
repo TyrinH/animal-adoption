@@ -41,6 +41,12 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
         res.render('animals/show', { foundAnimal })
     })
 
+    app.get('/animals/:id/edit', async (req, res) => {
+        const { id } = req.params;
+        const animal = await Animal.findById(id);
+        res.render('animals/edit', { animal })
+    })
+
 app.listen(3000, () => {
     console.log('SERVER CONNECTION ESTABLISHED!')
 })
