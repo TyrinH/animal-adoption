@@ -52,6 +52,9 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
     })
 
     app.put('/animals/:id', async (req, res) => {
+        const { id } = req.params;
+        const animal = await Animal.findByIdAndUpdate(id, req.body, {runValidators: true, new: true})
+        res.redirect(`/animals/${animal._id}`)
 
     })
 
