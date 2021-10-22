@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 const Animal = require('./models/animal');
 
@@ -16,7 +17,10 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
 
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'ejs');
+
     app.use(express.urlencoded({extended : true}))
+    app.use(methodOverride('_method'))
+
 
     app.get('/animals', async (req, res) => {
         const animals = await Animal.find({})
@@ -45,6 +49,10 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
         const { id } = req.params;
         const animal = await Animal.findById(id);
         res.render('animals/edit', { animal })
+    })
+
+    app.put('/animals/:id', async (req, res) => {
+
     })
 
 app.listen(3000, () => {
