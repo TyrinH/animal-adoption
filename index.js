@@ -58,6 +58,12 @@ mongoose.connect('mongodb://localhost:27017/animalAdoption')
 
     })
 
+    app.delete('/animals/:id', async (req, res) => {
+        const { id } = req.params;
+        const deletedanimal = await Animal.findByIdAndDelete(id)
+        res.redirect('/animals');
+    })
+
 app.listen(3000, () => {
     console.log('SERVER CONNECTION ESTABLISHED!')
 })

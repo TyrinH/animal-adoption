@@ -12,6 +12,13 @@
         <li><%= foundAnimal.species %> </li>
         <li><%= foundAnimal.age %> </li>
     </ul>
+    
     <a href="/animals">All animals</a>
+    <a href="/animals/<%foundAnimal._id%>/edit">Edit animals</a>
+    <form action="/animals/<%=foundAnimal._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+
+
 </body>
 </html>
